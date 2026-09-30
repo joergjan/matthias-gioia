@@ -1,0 +1,11 @@
+h1 {
+    @apply text-center;
+    font-family: "Lovers Quarrel", cursive;
+    font-size: 4rem;
+}
+
+h2 {
+    @apply text-center;
+    font-family: "Lovers Quarrel", cursive;
+    font-size: 2rem;
+}
