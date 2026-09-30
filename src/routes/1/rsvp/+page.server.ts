@@ -1,19 +1,19 @@
 import { fail } from '@sveltejs/kit';
 import nodemailer from 'nodemailer';
 import {
-    TH_SMTP_PASSWORD,
-    TH_SMTP_PORT,
-    TH_SMTP_SERVER,
-    TH_SMTP_USERNAME
+    MG_SMTP_PASSWORD,
+    MG_SMTP_PORT,
+    MG_SMTP_SERVER,
+    MG_SMTP_USERNAME
 } from '$env/static/private';
 
 const transporter = nodemailer.createTransport({
-    host: TH_SMTP_SERVER,
-    port: TH_SMTP_PORT,
+    host: MG_SMTP_SERVER,
+    port: MG_SMTP_PORT,
     secure: false,
     auth: {
-        user: TH_SMTP_USERNAME,
-        pass: TH_SMTP_PASSWORD
+        user: MG_SMTP_USERNAME,
+        pass: MG_SMTP_PASSWORD
     }
 });
 
