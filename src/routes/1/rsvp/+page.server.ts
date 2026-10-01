@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export const actions = {
-    createOrder: async ({ request }) => {
+    yeahJustInviteYourself: async ({ request }) => {
         const formData: FormData = await request.formData();
         const firstName: string = String(formData.get('firstName') ?? '').trim();
         const lastName: string = String(formData.get('lastName') ?? '').trim();
@@ -38,33 +38,12 @@ export const actions = {
         }
 
         const subject = `Hochzeitsanmeldung von ${firstName} ${lastName}`
-        const text = `${children}x Kleinkind\n\n${partner ? 'inkl. Partner' : 'ohne Partner'}\n\n\n${message}\n\n${email}\n${firstName} ${lastName} \n${street}\n${postcode} ${city}`
+        const text = `${children}x Kleinkind\n${partner ? 'inkl. Partner - ' + firstNamePartner + ' ' + lastNamePartner : 'ohne Partner'}\nNachricht: ${message}\n${email}\n${firstName} ${lastName} \n${street}\n${postcode} ${city}`
 
         await sendMail(subject, text, undefined, receiver)
 
 
-        return { success: true, message: 'Deine Bestellung ist angekommen. Sobald wir einen Geldeingang erhalten haben, werden wir dir den Honig in den Briefkasten stellen.' };
-    },
-    askQuestion: async ({ request }) => {
-        const formData = await request.formData();
-        const firstName = String(formData.get('firstName') ?? '').trim();
-        const lastName = String(formData.get('lastName') ?? '').trim();
-        const email = String(formData.get('email') ?? '').trim();
-        const receiver = String(formData.get('receiver') ?? '').trim();
-        const message = String(formData.get('message') ?? '').trim();
-
-
-
-        if (!firstName || !lastName || !email || !message) {
-            return fail(400, { success: false, message: 'Bitte fülle alle Felder aus.' });
-        }
-
-        const subject = `Anfrage von ${firstName} ${lastName}`
-        const text = `${message}\n\nAntworten an: ${email}`
-
-        await sendMail(subject, text, undefined, receiver)
-
-        return { success: true, message: 'Deine Bestellung ist angekommen. Sobald wir einen Geldeingang erhalten haben, werden wir dir den Honig in den Briefkasten stellen.' };
+        return { success: true, message: 'Wir haben deine Anmeldung erhalten. Bis dann!' };
     },
 };
 

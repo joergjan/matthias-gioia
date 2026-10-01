@@ -50,7 +50,7 @@
 </script>
 
 <form
-    action="?/createOrder"
+    action="?/yeahJustInviteYourself"
     method="POST"
     hidden={loading || showResultMessage}
     use:enhance={({ controller }) => {
@@ -86,7 +86,7 @@
         <Field.Set>
             <Field.Legend>Anmelden</Field.Legend>
 
-            <Field.Description>Melde dich fürs Hochzeit an</Field.Description>
+            <Field.Description>melde dich für's Hochzeit an</Field.Description>
             <Field.Group>
                 <div class="grid grid-cols-2 gap-4">
                     <Field.Field>
@@ -125,7 +125,7 @@
                         type="email"
                         id="email-{id}"
                         name="email"
-                        placeholder="max.muster@bluewin.ch"
+                        placeholder="gioia.heim@justmarried.ch"
                         aria-invalid={email === ""
                             ? false
                             : !isEmailValid(email)}
@@ -147,9 +147,10 @@
 
                     <Input
                         type="email"
+                        required
                         id="receiver-{id}"
                         name="receiver"
-                        placeholder="max.muster@bluewin.ch"
+                        placeholder="matthias.lerch@justmarried.ch"
                     />
                 </Field.Field>
             </Field.Group>
@@ -256,7 +257,7 @@
                             bind:value={childrenValue}
                         >
                             <Select.Trigger class="w-full max-w-48">
-                                <Select.Value placeholder="Select a fruit" />
+                                <Select.Value placeholder="Anzahl Kinder" />
                             </Select.Trigger>
                             <Select.Content>
                                 <Select.Group>
@@ -284,6 +285,7 @@
 
                     <Textarea
                         id="message-{id}"
+                        name="message"
                         placeholder="Ich freue mich jetzt bereits auf das Hochzeit! "
                         rows={4}
                     />
