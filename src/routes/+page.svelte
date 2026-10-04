@@ -51,7 +51,7 @@
             title: "Hochzeit Matthias & Gioia",
             startDate: "2026-09-17",
             startTime: "15:00",
-            endDate: "2026-09-17",
+            endDate: "2027-09-17",
             endTime: "23:15",
             description:
                 "Endlich isch es sowiit - mir chönd üses Hochziit mit dir zeme fiire!",
