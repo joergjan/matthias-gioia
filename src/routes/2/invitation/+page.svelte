@@ -4,6 +4,7 @@
     import gioia1 from "$lib/assets/gioia1.png";
     import gioia2 from "$lib/assets/gioia2.png";
     import { Button } from "$lib/components/ui/button";
+    import AddToCalendarButton from "$lib/components/AddToCalendarButton.svelte";
 
     let days = $state<number | null>(null);
     let hours = $state<number | null>(null);
@@ -41,6 +42,18 @@
 
     <p>17. September 2027</p>
     <p>bi dinere Mueter dehei</p>
+    <br />
+    <AddToCalendarButton
+        event={{
+            title: "Hochzeit Matthias & Gioia",
+            startDate: "2026-09-17",
+            startTime: "15:00",
+            endDate: "2026-09-17",
+            endTime: "23:15",
+            description:
+                "Endlich isch es sowiit - mir chönd üses Hochziit mit dir zeme fiire!",
+        }}
+    />
 </div>
 
 <div>
