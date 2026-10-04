@@ -252,7 +252,7 @@
 
                         <Select.Root
                             type="single"
-                            name="favoriteFruit"
+                            name="children"
                             items={children}
                             bind:value={childrenValue}
                         >
