@@ -1,11 +1,11 @@
 h1 {
     @apply text-center;
-    font-family: "Lovers Quarrel", cursive;
+    font-family: "Instrument Serif", serif;
     font-size: 3rem;
 }
 
 h2 {
     @apply text-center;
     font-family: "Lovers Quarrel", cursive;
-    font-size: 2rem;
+    font-size: 4rem;
 }
