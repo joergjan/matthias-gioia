@@ -7,6 +7,9 @@
     import "./typography.css";
     import { onMount } from "svelte";
     import Heart from "@lucide/svelte/icons/heart";
+    import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+    import { injectAnalytics } from "@vercel/analytics/sveltekit";
+    import { dev } from "$app/environment";
 
     let { children } = $props();
 
@@ -19,6 +22,9 @@
             logout();
         };
     });
+
+    injectSpeedInsights();
+    if (!dev) injectAnalytics({ mode: "production" });
 </script>
 
 <div class="grid grid-cols-1 gap-15 px-3 py-12">
