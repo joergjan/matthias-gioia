@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { PASSWORD } from "$env/static/private"
 
 export const AUTH_COOKIE = 'mg_auth';
 export const AUTH_TOKEN = createHash('sha256').update(`mg:${PASSWORD}`).digest('hex');
