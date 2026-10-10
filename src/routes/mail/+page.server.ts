@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export const load = () => {
-    // redirect(307, '/');
+    redirect(307, '/');
 };
 
 export const actions = {
