@@ -50,7 +50,7 @@
 </script>
 
 <form
-    action="?/yeahJustInviteYourself"
+    action="?/invite"
     method="POST"
     hidden={loading || showResultMessage}
     use:enhance={({ controller }) => {

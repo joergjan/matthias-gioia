@@ -1,13 +1,30 @@
 <script lang="ts">
-	import { Button } from "$lib/components/ui/button";
-	import "./layout.css";
-	import "./typography.css";
+    import "./layout.css";
+    import "./typography.css";
+    import { onMount } from "svelte";
+    import Heart from "@lucide/svelte/icons/heart";
 
-	let { children } = $props();
+    let { children } = $props();
+
+    // Leaving /2 drops access, so the password is asked on the next entry
+    onMount(() => {
+        const logout = () => navigator.sendBeacon("/2/logout");
+        window.addEventListener("pagehide", logout);
+        return () => {
+            window.removeEventListener("pagehide", logout);
+            logout();
+        };
+    });
 </script>
 
-<Button href="/" variant="secondary">Hehehe</Button>
-<Button href="/1" variant="secondary">Variante 1</Button>
-<Button href="/2" variant="secondary">Variante 2</Button>
-
-{@render children()}
+<div class="grid grid-cols-1 gap-12 px-3 py-12">
+    <div>
+        <h1>WIR HEIRATEN</h1>
+        <h2 class="inline-flex justify-center items-center">
+            <Heart class="h-4 mr-1" />Gioia und Matthias <Heart
+                class="h-4 ml-1"
+            />
+        </h2>
+    </div>
+    {@render children()}
+</div>

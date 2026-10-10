@@ -1,60 +1,164 @@
 <script lang="ts">
-    import stupid from "$lib/assets/stupid.mp4";
-    import Volume2 from "@lucide/svelte/icons/volume-2";
+    import photo_booth from "$lib/assets/photo_booth.jpg";
+    import printer from "$lib/assets/printer.wav";
+    import { onMount } from "svelte";
     import AddToCalendarButton from "$lib/components/AddToCalendarButton.svelte";
+    import Heart from "@lucide/svelte/icons/heart";
+    import { ScrollArea } from "$lib/components/ui/scroll-area/index.js";
+    import Button from "$lib/components/ui/button/button.svelte";
 
-    let videoElement: HTMLVideoElement;
-    let soundEnabled = $state(false);
-
-    function enableSound() {
-        videoElement.muted = false;
-        soundEnabled = true;
-        void videoElement.play().catch(() => undefined);
-    }
+    onMount(() => {
+        const audio = new Audio(printer);
+        audio.play().catch(() => {});
+        return () => audio.pause();
+    });
 </script>
 
-<br />
-<p>17.09.2027</p>
+<figure class="picture-frame">
+    <div class="frame-bevel">
+        <div class="frame-mat">
+            <img
+                class="photo-booth"
+                src={photo_booth}
+                alt="Fotostreifen mit drei Bildern"
+            />
+        </div>
+    </div>
+</figure>
 
-<p>mir denn so a euem hochziit</p>
-
-<div class="relative mx-auto flex items-center justify-center">
+<div>
     <div>
-        <video
-            id="vid"
-            bind:this={videoElement}
-            class="h-108 m-5"
-            src={stupid}
-            autoplay
-            muted
-            playsinline
-            loop
-        ></video>
+        <h1>SAVE THE</h1>
+        <h2 class="inline-flex justify-center items-center">
+            <Heart class="h-4 mr-1" />Date<Heart class="h-4 ml-1" />
+        </h2>
     </div>
 
-    {#if !soundEnabled}
-        <div class="absolute top-10">
-            <button
-                type="button"
-                class="rounded-md border inline-flex border-white/40 bg-black/60 px-3 py-2 text-white backdrop-blur-md"
-                onclick={enableSound}
-            >
-                <Volume2 class="pr-1" /> Sound an
-            </button>
-        </div>
-    {/if}
+    <p>17.09.2026</p>
+
+    <div class="pt-2">
+        <AddToCalendarButton
+            event={{
+                title: "Hochzeit Gioia & Matthias",
+                startDate: "2026-09-17",
+                startTime: "10:00",
+                endDate: "2027-09-18",
+                endTime: "12:00",
+                location:
+                    "Reblaus Bahlingen, Am Silberbrunnen 4, 79353 Bahlingen am Kaiserstuhl, Deutschland",
+                description: "Save the Date – Einladung folgt.",
+            }}
+        />
+    </div>
 </div>
 
 <div>
-    <AddToCalendarButton
-        event={{
-            title: "Hochzeit Matthias & Gioia",
-            startDate: "2026-09-17",
-            startTime: "15:00",
-            endDate: "2027-09-17",
-            endTime: "23:15",
-            description:
-                "Endlich isch es sowiit - mir chönd üses Hochziit mit dir zeme fiire!",
-        }}
-    />
+    <h1>FEIER MIT</h1>
+    <h2 class="inline-flex justify-center items-center">
+        <Heart class="h-4 mr-1" />Uns<Heart class="h-4 ml-1" />
+    </h2>
+
+    <p>Reblaus Bahlingen</p>
+    <p>Am Silberbrunnen 4</p>
+    <p>79353 Bahlingen am Kaiserstuhl</p>
 </div>
+
+<style>
+    .picture-frame {
+        width: clamp(12rem, 34vw, 17rem);
+        aspect-ratio: 0.45;
+        margin: 0.5rem auto 0;
+        padding: 0.85rem;
+        transform: rotate(-2deg);
+        background: linear-gradient(
+            105deg,
+            #181918 0%,
+            #555650 8%,
+            #262725 15%,
+            #77766e 21%,
+            #272825 29%,
+            #111211 48%,
+            #77766e 68%,
+            #292a27 79%,
+            #141514 100%
+        );
+        box-shadow:
+            0 1.2rem 2rem rgb(0 0 0 / 35%),
+            0 0.25rem 0.4rem rgb(0 0 0 / 25%),
+            inset 1px 1px 2px rgb(255 255 255 / 55%),
+            inset -2px -2px 4px rgb(0 0 0 / 80%);
+    }
+
+    .frame-bevel {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 0.45rem;
+        background: linear-gradient(
+            100deg,
+            #252622,
+            #b4b1a6 8%,
+            #55564f 14%,
+            #d0ccc0 19%,
+            #77766d 24%,
+            #393a35 31%,
+            #aaa79c 53%,
+            #4a4b46 70%,
+            #c4c0b4 84%,
+            #32332f 100%
+        );
+        box-shadow:
+            inset 0 0 0 1px rgb(0 0 0 / 75%),
+            inset 0 0 0 3px rgb(255 255 255 / 28%),
+            0 0 0 1px rgb(0 0 0 / 60%);
+    }
+
+    .frame-mat {
+        position: relative;
+        overflow: hidden;
+        flex: 1;
+        border: 1px solid rgb(50 49 44 / 75%);
+        background: linear-gradient(
+                to bottom,
+                transparent 0 91%,
+                rgb(226 222 210 / 70%) 96%,
+                rgb(132 128 117 / 65%) 100%
+            ),
+            linear-gradient(145deg, #858278, #aaa596 48%, #938f83);
+        box-shadow:
+            inset 2px 2px 7px rgb(0 0 0 / 35%),
+            inset -2px -2px 5px rgb(255 255 255 / 45%),
+            0 0 0 2px rgb(255 255 255 / 35%);
+    }
+
+    .photo-booth {
+        position: absolute;
+        top: -0.5rem;
+        left: 50%;
+        width: 50%;
+        height: 78%;
+        padding: 0.28rem 0.28rem 0.65rem;
+        background: #f7f4e9;
+        box-shadow: 0 0.3rem 0.55rem rgb(0 0 0 / 35%);
+        object-fit: cover;
+        transform: translate(-50%, -105%);
+        animation: photo-slide-in 5.82s linear forwards;
+    }
+
+    @keyframes photo-slide-in {
+        from {
+            transform: translate(-50%, -105%);
+        }
+
+        to {
+            transform: translate(-50%, 0);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .photo-booth {
+            transform: translate(-50%, 0);
+            animation: none;
+        }
+    }
+</style>

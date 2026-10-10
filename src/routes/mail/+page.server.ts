@@ -1,5 +1,6 @@
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import nodemailer from 'nodemailer';
+import { requireAuth } from '$lib/server/auth';
 import {
     MG_SMTP_PASSWORD,
     MG_SMTP_PORT,
@@ -17,8 +18,13 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+export const load = () => {
+    redirect(307, '/');
+};
+
 export const actions = {
-    yeahJustInviteYourself: async ({ request }) => {
+    invite: async ({ request, cookies, url }) => {
+        requireAuth(cookies, url);
         const formData: FormData = await request.formData();
         const firstName: string = String(formData.get('firstName') ?? '').trim();
         const lastName: string = String(formData.get('lastName') ?? '').trim();
