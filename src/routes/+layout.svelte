@@ -1,4 +1,8 @@
 <script lang="ts">
+    import type { Pathname } from '$app/types';
+    import { resolve } from '$app/paths';
+    import { page } from '$app/state';
+    import { locales, localizeHref } from '$lib/paraglide/runtime.js';
     import "./layout.css";
     import "./typography.css";
     import { onMount } from "svelte";
@@ -27,4 +31,12 @@
         </h2>
     </div>
     {@render children()}
+</div>
+
+<div style="display:none">
+    {#each locales as locale (locale)}
+        <a
+            href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}
+        >{locale}</a>
+    {/each}
 </div>
