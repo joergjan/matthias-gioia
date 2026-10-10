@@ -11,10 +11,10 @@
 
 <Card.Root class="mx-auto w-full max-w-sm">
     <Card.Header>
-        <Card.Title>Passwort</Card.Title>
-        <Card.Description>
-            Gib das Passwort ein, um die Einladung anzusehen.
-        </Card.Description>
+        <Card.Title>Login</Card.Title>
+        <Card.Description
+            >Gib das Passwort ein, um die Einladung anzusehen.</Card.Description
+        >
     </Card.Header>
     <Card.Content>
         <form method="POST" use:enhance>

@@ -6,8 +6,8 @@
     import { onMount } from "svelte";
     import AddToCalendarButton from "$lib/components/AddToCalendarButton.svelte";
     import Heart from "@lucide/svelte/icons/heart";
-    import { ScrollArea } from "$lib/components/ui/scroll-area/index.js";
-    import Button from "$lib/components/ui/button/button.svelte";
+    import * as Item from "$lib/components/ui/item/index.js";
+    import * as Card from "$lib/components/ui/card/index.js";
 
     onMount(() => {
         const audio = new Audio(printer);
@@ -74,6 +74,19 @@
         <p>Am Silberbrunnen 4</p>
         <p>79353 Bahlingen am Kaiserstuhl</p>
     </div>
+</div>
+
+<div class="items-center justify-center flex">
+    <Card.Root class="max-w-xl">
+        <Card.Content>
+            <Card.Title>Übernachtung</Card.Title>
+            <Card.Description
+                >Für alle, die gerne in der Nähe übernachten möchten, teilen wir
+                zu einem späteren Zeitpunkt noch einige Hotelempfehlungen mit
+                euch.
+            </Card.Description>
+        </Card.Content>
+    </Card.Root>
 </div>
 
 <style>
