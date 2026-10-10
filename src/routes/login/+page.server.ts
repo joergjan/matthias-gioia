@@ -1,5 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
-import { AUTH_COOKIE, AUTH_TOKEN, PASSWORD } from '$lib/server/auth';
+import { AUTH_COOKIE, AUTH_TOKEN } from '$lib/server/auth';
+import { PASSWORD } from "$env/static/private"
 
 export const actions = {
     default: async ({ request, cookies, url }) => {
