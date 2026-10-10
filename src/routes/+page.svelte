@@ -44,22 +44,23 @@
             <Heart class="h-4 mr-1" />Date<Heart class="h-4 ml-1" />
         </h2>
     </div>
+    <div class="pt-3">
+        <p>17.09.2026</p>
 
-    <p>17.09.2026</p>
-
-    <div class="pt-2">
-        <AddToCalendarButton
-            event={{
-                title: "Hochzeit Gioia & Matthias",
-                startDate: "2026-09-17",
-                startTime: "10:00",
-                endDate: "2027-09-18",
-                endTime: "12:00",
-                location:
-                    "Reblaus Bahlingen, Am Silberbrunnen 4, 79353 Bahlingen am Kaiserstuhl, Deutschland",
-                description: "Save the Date – Einladung folgt.",
-            }}
-        />
+        <div class="pt-2">
+            <AddToCalendarButton
+                event={{
+                    title: "Hochzeit Gioia & Matthias",
+                    startDate: "2026-09-17",
+                    startTime: "10:00",
+                    endDate: "2027-09-18",
+                    endTime: "12:00",
+                    location:
+                        "Reblaus Bahlingen, Am Silberbrunnen 4, 79353 Bahlingen am Kaiserstuhl, Deutschland",
+                    description: "Save the Date – Einladung folgt.",
+                }}
+            />
+        </div>
     </div>
 </div>
 
@@ -68,10 +69,11 @@
     <h2 class="inline-flex justify-center items-center">
         <Heart class="h-4 mr-1" />Uns<Heart class="h-4 ml-1" />
     </h2>
-
-    <p>Reblaus Bahlingen</p>
-    <p>Am Silberbrunnen 4</p>
-    <p>79353 Bahlingen am Kaiserstuhl</p>
+    <div class="pt-3">
+        <p>Reblaus Bahlingen</p>
+        <p>Am Silberbrunnen 4</p>
+        <p>79353 Bahlingen am Kaiserstuhl</p>
+    </div>
 </div>
 
 <style>
