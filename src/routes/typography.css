@@ -1,12 +1,32 @@
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../lib/assets/AvenirNext-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Snell Roundhand";
+    src: url("../lib/assets/snellroundhand.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "American Typewriter";
+    src: url("../lib/assets/american-typewriter.ttf") format("truetype");
+    font-display: swap;
+}
+
 h1 {
     @apply text-center;
-    font-family: "Instrument Serif", serif;
-    font-size: 3rem;
+    font-family: "American Typewriter", serif;
+    font-size: 1.5rem;
+    font-weight: 100;
 }
 
 h2 {
     text-align: center;
     margin-top: -2rem;
-    font-family: "Lovers Quarrel", cursive;
-    font-size: 4rem;
+    font-family: "Snell Roundhand", cursive;
+    font-size: 2rem;
 }

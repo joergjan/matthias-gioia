@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
+import { PASSWORD } from "$env/static/private"
 
 export const AUTH_COOKIE = 'mg_auth';
-export const PASSWORD = 'Maggio';
 export const AUTH_TOKEN = createHash('sha256').update(`mg:${PASSWORD}`).digest('hex');
 
 import { redirect, type Cookies } from '@sveltejs/kit';
