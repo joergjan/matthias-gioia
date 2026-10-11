@@ -13,6 +13,7 @@ export const actions = {
 
         cookies.set(AUTH_COOKIE, AUTH_TOKEN, {
             path: '/',
+            maxAge: 30 * 24 * 60 * 60,
             httpOnly: true,
             sameSite: 'lax',
             secure: url.protocol === 'https:'

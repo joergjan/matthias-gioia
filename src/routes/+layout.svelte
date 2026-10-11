@@ -5,23 +5,12 @@
     import { locales, localizeHref } from "$lib/paraglide/runtime.js";
     import "./layout.css";
     import "./typography.css";
-    import { onMount } from "svelte";
     import Heart from "@lucide/svelte/icons/heart";
     import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
     import { injectAnalytics } from "@vercel/analytics/sveltekit";
     import { dev } from "$app/environment";
 
     let { children } = $props();
-
-    // Leaving / drops access, so the password is asked on the next entry
-    onMount(() => {
-        const logout = () => navigator.sendBeacon("/logout");
-        window.addEventListener("pagehide", logout);
-        return () => {
-            window.removeEventListener("pagehide", logout);
-            logout();
-        };
-    });
 
     injectSpeedInsights();
     if (!dev) injectAnalytics({ mode: "production" });
