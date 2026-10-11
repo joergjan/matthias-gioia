@@ -2,18 +2,11 @@
     import photo_booth_1 from "$lib/assets/photo_booth_1.jpg";
     import photo_booth_2 from "$lib/assets/photo_booth_2.jpg";
     import photo_booth_3 from "$lib/assets/photo_booth_3.jpg";
-    import printer from "$lib/assets/printer.wav";
-    import { onMount } from "svelte";
     import AddToCalendarButton from "$lib/components/AddToCalendarButton.svelte";
     import Heart from "@lucide/svelte/icons/heart";
     import * as Item from "$lib/components/ui/item/index.js";
     import * as Card from "$lib/components/ui/card/index.js";
 
-    onMount(() => {
-        const audio = new Audio(printer);
-        audio.play().catch(() => {});
-        return () => audio.pause();
-    });
 </script>
 
 <figure class="picture-frame">
