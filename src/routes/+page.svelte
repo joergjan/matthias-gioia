@@ -6,7 +6,6 @@
     import Heart from "@lucide/svelte/icons/heart";
     import * as Item from "$lib/components/ui/item/index.js";
     import * as Card from "$lib/components/ui/card/index.js";
-
 </script>
 
 <figure class="picture-frame">
@@ -38,7 +37,7 @@
         </h2>
     </div>
     <div class="pt-3">
-        <p>17.09.2026</p>
+        <p>17.09.2027</p>
 
         <div class="pt-2">
             <AddToCalendarButton
