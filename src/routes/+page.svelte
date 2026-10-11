@@ -8,6 +8,10 @@
     import * as Card from "$lib/components/ui/card/index.js";
 </script>
 
+<svelte:head>
+    <meta name="robots" content="noindex" />
+</svelte:head>
+
 <figure class="picture-frame">
     <div class="frame-bevel">
         <div class="frame-mat">
