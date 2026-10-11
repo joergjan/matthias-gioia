@@ -51,7 +51,7 @@
             <AddToCalendarButton
                 event={{
                     title: "Hochzeit Gioia & Matthias",
-                    startDate: "2026-09-17",
+                    startDate: "2027-09-17",
                     startTime: "10:00",
                     endDate: "2027-09-18",
                     endTime: "12:00",
