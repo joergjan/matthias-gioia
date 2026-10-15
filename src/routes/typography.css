@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: "Snell Roundhand";
-    src: url("../lib/assets/snell_roundhand.ttf") format("opentype");
+    src: url("../lib/assets/snell_roundhand_regular.ttf") format("truetype");
     font-display: swap;
 }
 
