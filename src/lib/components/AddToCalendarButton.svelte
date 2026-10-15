@@ -198,10 +198,12 @@
 
 <DropdownMenu.Root>
     <DropdownMenu.Trigger>
-        <Button variant="outline">
-            <CalendarHeart />
-            Datum speichern
-        </Button>
+        {#snippet child({ props })}
+            <Button variant="outline" {...props}>
+                <CalendarHeart />
+                Datum speichern
+            </Button>
+        {/snippet}
     </DropdownMenu.Trigger>
     <DropdownMenu.Content>
         <DropdownMenu.Item onSelect={downloadIcs}>
